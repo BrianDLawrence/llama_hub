@@ -12,7 +12,7 @@
 	<artifactId>llamahub</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>llamahub</name>
-	<description>Web interface for the llama herder ai agent</description>
+	<description>REST API Application Server for LLAMA HERDER AI AGENT</description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>

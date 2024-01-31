@@ -1,9 +1,14 @@
 package com.llamaherder.database.repositories;
 
+import com.llamaherder.database.domain.Action;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
 /**
  *
  * @author Brian@SperoAutem.com
  */
-public interface ActionRepository {
+@Repository
+public interface ActionRepository extends CrudRepository<Action, Long>{
     
 }

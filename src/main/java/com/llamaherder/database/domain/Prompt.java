@@ -6,6 +6,7 @@ package com.llamaherder.database.domain;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -19,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="actions")
+@Table(name="prompts")
 /**
 /**
  *
@@ -27,6 +28,7 @@ import lombok.NoArgsConstructor;
  */
 public class Prompt {
     
+    @Id
     private String title;
     
     private String prompttext;
