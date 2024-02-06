@@ -75,4 +75,16 @@ public class PromptRepostitoryIntegrationTests {
         assertThat(result.get()).isEqualTo(promptA);
         assertThat(result.get().getTitle()).isEqualTo("UPDATED");
     }
+
+    @Test
+    public void testThatPromptCanBeDeleted() {
+        Action action = TestDataUtil.createTestActionA();
+        Prompt promptA = TestDataUtil.createTestPromptA(action);
+        underTest.save(promptA);
+ 
+        underTest.deleteById(promptA.getTitle());
+                
+        Optional<Prompt> result = underTest.findById(promptA.getTitle());
+        assertThat(result).isEmpty();
+    }
 }

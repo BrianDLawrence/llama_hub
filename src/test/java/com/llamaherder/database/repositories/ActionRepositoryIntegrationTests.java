@@ -40,7 +40,7 @@ public class ActionRepositoryIntegrationTests {
         assertThat(result.get()).isEqualTo(action);
     }   
     
-        @Test
+    @Test
     public void testThatActionsCanBeCreatedAndRecalled() {
         Action actionA = TestDataUtil.createTestActionA();
         underTest.save(actionA);
@@ -57,7 +57,7 @@ public class ActionRepositoryIntegrationTests {
                 .containsExactly(actionA, actionB, actionC);
     }
     
-     @Test
+    @Test
     public void testThatActionCanBeUpdated() {
         Action actionA = TestDataUtil.createTestActionA();
         underTest.save(actionA);
@@ -67,5 +67,14 @@ public class ActionRepositoryIntegrationTests {
         assertThat(result).isPresent();
         assertThat(result.get()).isEqualTo(actionA);
         assertThat(result.get().getName()).isEqualTo("UPDATED");
+    }
+    
+    @Test
+    public void testThatActionCanBeDeleted() {
+        Action actionA = TestDataUtil.createTestActionA();
+        underTest.save(actionA);
+        underTest.deleteById(actionA.getId());
+        Optional<Action> result = underTest.findById(actionA.getId());
+        assertThat(result).isEmpty();
     }
 }
